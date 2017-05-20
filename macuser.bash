@@ -60,10 +60,12 @@ for GROUP in $SECONDARY_GROUPS ; do
     dscl . -append /Groups/$GROUP GroupMembership $SHORTNAME
 done
 
-if [ "$(fdesetup isactive)" = 'true' ]; then
-	echo "This device is encrypted. Adding user to filevault login."
-        expect -c "spawn fdesetup add -usertoadd \"$SHORTNAME\"; expect \":\"; send \"$ADMINPW\n\" ; expect \":\"; send \"$PASSWORD\n\"; expect eof"
-fi
+
+#Filevault not working yet
+#if [ "$(fdesetup isactive)" = 'true' ]; then
+#	echo "This device is encrypted. Adding user to filevault login."
+#        expect -c "spawn fdesetup add -usertoadd \"$SHORTNAME\"; expect \":\"; send \"$ADMINPW\n\" ; expect \":\"; send \"$PASSWORD\n\"; expect eof"
+#fi
 
 # Create the home directory - REMOVED DUE TO ERRORS. NOT NEEDED.
 # echo "Creating home directory..."
